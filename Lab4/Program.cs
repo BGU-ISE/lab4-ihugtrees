@@ -39,18 +39,15 @@ namespace Lab4
                         else
                         {
                             wrongPassCount++;
-                            Console.WriteLine("Wrong password.. Try again " + (3-wrongPassCount));
+                            Console.WriteLine("Wrong password.. Try again " + (3 - wrongPassCount));
                         }
                     }
                 }
                 else
                     Console.WriteLine("no such id");
 
-                //if (wrongPassCount < 3)
-                //{
-                    Console.WriteLine("Enter id or 'exit'");
-                    id = Console.ReadLine();
-               // }
+                Console.WriteLine("Enter id or 'exit'");
+                id = Console.ReadLine();
             }
         }
 
