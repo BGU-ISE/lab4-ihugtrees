@@ -20,30 +20,38 @@ namespace Lab4
 
             //ImplementLoggingFuntion();
 
-            Console.WriteLine("Enter user id");
+            int wrongPassCount = 0;
+            Console.WriteLine("Enter id or 'exit'");
             string id = Console.ReadLine();
-
-            if (id.Equals(realID))
+            while (!id.Equals("exit"))
             {
-                int wrongPassCount = 0;
-                while (wrongPassCount < 3)
+                if (id.Equals(realID))
                 {
-                    Console.WriteLine("Enter user password");
-                    string password = Console.ReadLine();
-                    if (realPassword.Equals(password))
+                    while (wrongPassCount < 3)
                     {
-                        Console.WriteLine("Congratz u logged in.. take a banana");
-                        break;
-                    }
-                    else
-                    {
-                        wrongPassCount++;
-                        Console.WriteLine("Wrong password.. Try again");
+                        Console.WriteLine("Enter user password");
+                        string password = Console.ReadLine();
+                        if (realPassword.Equals(password))
+                        {
+                            Console.WriteLine("Congratz u logged in.. take a banana");
+                            break;
+                        }
+                        else
+                        {
+                            wrongPassCount++;
+                            Console.WriteLine("Wrong password.. Try again " + (3-wrongPassCount));
+                        }
                     }
                 }
+                else
+                    Console.WriteLine("no such id");
+
+                //if (wrongPassCount < 3)
+                //{
+                    Console.WriteLine("Enter id or 'exit'");
+                    id = Console.ReadLine();
+               // }
             }
-            else
-                Console.WriteLine("no such id");
         }
 
         private static void ImplementLoggingFuntion()
