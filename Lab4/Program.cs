@@ -12,11 +12,38 @@ namespace Lab4
     class Program
     {
         //Declare an instance for log4net
-        private static readonly ILog Log =
-              LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         static void Main(string[] args)
         {
-            ImplementLoggingFuntion();
+            string realID = "minion";
+            string realPassword = "banana";
+
+            //ImplementLoggingFuntion();
+
+            Console.WriteLine("Enter user id");
+            string id = Console.ReadLine();
+
+            if (id.Equals(realID))
+            {
+                int wrongPassCount = 0;
+                while (wrongPassCount < 3)
+                {
+                    Console.WriteLine("Enter user password");
+                    string password = Console.ReadLine();
+                    if (realPassword.Equals(password))
+                    {
+                        Console.WriteLine("Congratz u logged in.. take a banana");
+                        break;
+                    }
+                    else
+                    {
+                        wrongPassCount++;
+                        Console.WriteLine("Wrong password.. Try again");
+                    }
+                }
+            }
+            else
+                Console.WriteLine("no such id");
         }
 
         private static void ImplementLoggingFuntion()
